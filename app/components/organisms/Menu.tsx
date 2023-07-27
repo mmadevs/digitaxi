@@ -32,12 +32,12 @@ const Menu: FunctionComponent<{
 						item={item}
 						selected={selectedIndex === i}
 						onClick={() => {
+							close?.()
 							document.querySelector(item.route)?.scrollIntoView({
 								behavior: 'smooth',
 								block: 'start'
 							})
 							setSelectedIndex(i)
-							close?.()
 						}}
 					/>
 				))}

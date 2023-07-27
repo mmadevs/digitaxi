@@ -21,16 +21,6 @@ const Carousel: FunctionComponent<{
 				const scrollLeft = itemsRef.current.scrollLeft
 				const scrollOne = scrollWidth / items.length
 
-				console.log(
-					'posicao atual:',
-					scrollLeft,
-					'deverá scrollar:',
-					scrollOne,
-					'tamanho do scroll:',
-					scrollWidth,
-					'resultado será:',
-					scrollLeft + scrollOne
-				)
 				if (scrollLeft + scrollOne < scrollWidth) {
 					itemsRef.current.scrollLeft += scrollOne
 					setSelectedIndex(scrollWidth / itemsRef.current.scrollLeft)

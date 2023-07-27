@@ -23,7 +23,7 @@ function Pages() {
 			id='pages'
 			className={`relative min-h-screen flex flex-col ${
 				isMenuOpen
-					? 'max-h-screen overflow-hidden'
+					? 'amax-h-screen aoverflow-hidden'
 					: 'overflow-auto scroll-smooth'
 			}`}
 		>

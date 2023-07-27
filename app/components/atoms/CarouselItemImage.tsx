@@ -8,6 +8,7 @@ const CarouselItemImage: FunctionComponent<{
 		className={`transition-opacity duration-300 object-cover`}
 		src={value}
 		alt='Veículos'
+		priority
 		fill
 	/>
 )
