@@ -36,7 +36,7 @@ const Text: FunctionComponent<TextProps> = ({
 			{children}
 		</h3>
 	) : type === 'paragraph' ? (
-		<p id={id} className={`${className ?? ''} text-sm lg:text-xl`}>
+		<p id={id} className={`${className ?? ''} text-sm lg:text-lg`}>
 			{children}
 		</p>
 	) : type === 'smaller' ? (

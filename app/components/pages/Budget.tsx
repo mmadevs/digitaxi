@@ -6,6 +6,7 @@ import Text from '../atoms/Text'
 import { useInView } from 'react-intersection-observer'
 import Input from '../molecules/Input'
 import { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Budget() {
 	const { ref: budgetSectionRef, inView: budgetSectionInView } = useInView({
@@ -22,6 +23,26 @@ export default function Budget() {
 		about: ''
 	})
 
+	const fields: {
+		key: 'name' | 'company' | 'email' | 'phone' | 'about'
+		label: string
+		className?: string
+		long?: boolean
+	}[] = [
+		{ label: 'Seu nome', key: 'name' },
+		{ label: 'Empresa:', key: 'company' },
+		{ label: 'E-mail:', key: 'email' },
+		{ label: 'Telefone/Celular:', key: 'phone' },
+		{
+			label: 'O que você precisa?',
+			key: 'about',
+			className: 'col-span-2 row-span-2',
+			long: true
+		}
+	]
+	function onChange(value: string | null) {
+		console.log('Captcha value:', value)
+	}
 	return (
 		<PageLayout id='orcamento' className=''>
 			<Section
@@ -41,46 +62,34 @@ export default function Budget() {
 				</Text>
 				<form
 					className={`flex flex-col gap-2 
-                lg:grid lg:grid-cols-2 lg:grid-rows-5`}
+                lg:grid lg:grid-cols-2 lg:grid-rows-6`}
 				>
-					<Input
-						label='Seu nome:'
-						value={formData.name}
-						setValue={(value) =>
-							setFormData((prev) => ({ ...prev, name: value }))
-						}
-					/>
-					<Input
-						label='Empresa:'
-						value={formData.company}
-						setValue={(value) =>
-							setFormData((prev) => ({ ...prev, company: value }))
-						}
-					/>
-					<Input
-						label='E-mail:'
-						value={formData.email}
-						setValue={(value) =>
-							setFormData((prev) => ({ ...prev, email: value }))
-						}
-					/>
-					<Input
-						label='Telefone/Celular:'
-						value={formData.phone}
-						setValue={(value) =>
-							setFormData((prev) => ({ ...prev, phone: value }))
-						}
-					/>
-					<Input
-						className='col-span-2 row-span-2'
-						label='Conta um pouco sobre o que você precisa:'
-						value={formData.about}
-						long
-						setValue={(value) =>
-							setFormData((prev) => ({ ...prev, about: value }))
-						}
-					/>
-					<PrimaryButton className='col-span-2 row-start-5 self-center place-self-center px-24'>
+					{fields.map((field) => (
+						<Input
+							key={field.key}
+							label={field.label}
+							long={field.long}
+							className={field.className}
+							value={(formData[field.key] as string) ?? ''}
+							setValue={(value) =>
+								setFormData((prev) => ({
+									...prev,
+									[field.key]: value
+								}))
+							}
+						/>
+					))}
+					<div className='relative col-span-2 row-start-5 self-center place-self-center px-24'>
+						<ReCAPTCHA
+							className=''
+							sitekey={
+								process.env
+									.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string
+							}
+							onChange={onChange}
+						/>
+					</div>
+					<PrimaryButton className='col-span-2 row-start-6 self-center place-self-center px-24'>
 						Enviar
 					</PrimaryButton>
 				</form>

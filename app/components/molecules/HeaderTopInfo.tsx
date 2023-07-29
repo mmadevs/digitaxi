@@ -5,17 +5,17 @@ import Text from '../atoms/Text'
 
 const HeaderTopInfo: FunctionComponent = () => {
 	return (
-		<header className='w-full flex flex-wrap items-center py-5 px-1 lg:px-4 gap-4 lg:gap-8 justify-start bg-blue-950 text-white'>
-			<Text className='max-md:hidden font-bold' type='paragraph'>
+		<header className='w-full flex flex-wrap items-center py-3 px-1 lg:px-4 gap-4 lg:gap-8 justify-start bg-blue-950 text-white'>
+			<Text className='max-md:hidden font-bold' type='smaller'>
 				Fale conosco!
 			</Text>
 			<span className='flex text-sm items-center gap-1'>
 				<GiPhone />
-				<Text type='paragraph'>(71) 3625-1725</Text>
+				<Text type='smaller'>(71) 3625-1725</Text>
 			</span>
 			<span className='flex text-sm items-center gap-1'>
 				<FiAtSign />
-				<Text type='paragraph'>atendimento@digitaxi.coop.br</Text>
+				<Text type='smaller'>atendimento@digitaxi.coop.br</Text>
 			</span>
 		</header>
 	)

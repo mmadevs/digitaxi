@@ -8,12 +8,12 @@ const AboutItem: FunctionComponent<{
 	children: ReactNode
 }> = ({ children, title, subtitle }) => {
 	return (
-		<div className='w-full flex gap-2'>
+		<div className='w-full flex gap-4'>
 			<IconBase className='fill-blue-950 text-blue-950 text-6xl'>
 				{children}
 			</IconBase>
 
-			<div className='border-l-4 border-blue-950 flex-1 pl-2'>
+			<div className='border-l-4 border-blue-950 flex-1 pl-4'>
 				<Text type='label' className=''>
 					{title}
 				</Text>

@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
 
 const Input: FunctionComponent<{
-	value: string
+	value: string | undefined
 	setValue: (value: string) => void
 	label: string
 	long?: boolean
