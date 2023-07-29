@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useState } from 'react'
 
 const Input: FunctionComponent<{
 	value: string | undefined
@@ -6,24 +6,40 @@ const Input: FunctionComponent<{
 	label: string
 	long?: boolean
 	className?: string
-}> = ({ label, value, setValue, className = '', long = false }) => {
+	required?: boolean
+}> = ({
+	label,
+	value,
+	setValue,
+	className = '',
+	long = false,
+	required = true
+}) => {
+	const [error, setError] = useState<string | undefined>()
 	return (
 		<div className={`flex flex-col w-full ${className}`}>
-			<label>{label}</label>
-			{!long ? (
-				<input
-					className={`p-2 rounded-xl border-2 border-blue-950`}
-					value={value}
-					onChange={(e) => setValue(e.target.value)}
-				/>
-			) : (
-				<textarea
-					rows={4}
-					className={`p-2 rounded-xl border-2 border-blue-950 resize-none`}
-					value={value}
-					onChange={(e) => setValue(e.target.value)}
-				/>
-			)}
+			<label htmlFor={`${label.replaceAll(' ', '')}-input`}>
+				{label}
+			</label>
+			<textarea
+				id={`${label.replaceAll(' ', '')}-input`}
+				rows={long ? 4 : 1}
+				className={`p-2 rounded-xl border-2 border-blue-950 resize-none`}
+				value={value}
+				onChange={(e) => {
+					const currentValue = e.target.value
+					if (currentValue) setError(undefined)
+					setValue(currentValue)
+				}}
+				onBlur={() => {
+					if (!value && required) {
+						setError('Este campo é obrigatório')
+					} else {
+						setError(undefined)
+					}
+				}}
+			/>
+			{error && <small className='text-red-900'>{error}</small>}
 		</div>
 	)
 }

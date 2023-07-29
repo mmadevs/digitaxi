@@ -9,6 +9,8 @@ import { useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Budget() {
+	const [isSendButtonDisabled, setIsSendButtonDisabled] = useState(true)
+
 	const { ref: budgetSectionRef, inView: budgetSectionInView } = useInView({
 		initialInView: false,
 		trackVisibility: true,
@@ -40,8 +42,8 @@ export default function Budget() {
 			long: true
 		}
 	]
-	function onChange(value: string | null) {
-		console.log('Captcha value:', value)
+	function recaptchaSuccessful(value: string | null) {
+		value && setIsSendButtonDisabled(false)
 	}
 	return (
 		<PageLayout id='orcamento' className=''>
@@ -86,10 +88,13 @@ export default function Budget() {
 								process.env
 									.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string
 							}
-							onChange={onChange}
+							onChange={recaptchaSuccessful}
 						/>
 					</div>
-					<PrimaryButton className='col-span-2 row-start-6 self-center place-self-center px-24'>
+					<PrimaryButton
+						className='col-span-2 row-start-6 self-center place-self-center px-24'
+						disabled={isSendButtonDisabled}
+					>
 						Enviar
 					</PrimaryButton>
 				</form>
