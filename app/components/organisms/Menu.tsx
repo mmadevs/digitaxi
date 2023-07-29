@@ -10,7 +10,7 @@ const Menu: FunctionComponent<{
 }> = ({ items, close, className }) => {
 	return (
 		<div
-			className={`z-50 absolute h-full overflow-visible inset-0 min-h-screen p-8 bg-blue-950 text-white flex flex-col max-md:animate-flip-down
+			className={`z-50 fixed h-full overflow-visible inset-0 min-h-screen p-8 bg-blue-950 text-white flex flex-col max-md:animate-flip-down
 			lg:static lg:h-auto lg:min-h-0 lg:rounded-xl lg:p-3 lg:px-8 ${className ?? ''}`}
 		>
 			<button
