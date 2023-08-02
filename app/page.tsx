@@ -28,7 +28,7 @@ function Pages() {
 			id='pages'
 			className={`flex flex-col overflow-hidden ${
 				isMenuOpen
-					? 'amax-h-screen aoverflow-hidden'
+					? 'max-h-screen overflow-hidden'
 					: 'overflow-auto scroll-smooth'
 			}
 			`}
