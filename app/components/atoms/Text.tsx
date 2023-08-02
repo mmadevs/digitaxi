@@ -1,8 +1,8 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, ReactNode } from 'react'
 
 interface TextProps {
 	type: 'title' | 'label' | 'subtitle' | 'paragraph' | 'smaller'
-	children: string | string[]
+	children: string | string[] | ReactNode
 	className?: string
 	id?: string
 }
@@ -36,7 +36,7 @@ const Text: FunctionComponent<TextProps> = ({
 			{children}
 		</h3>
 	) : type === 'paragraph' ? (
-		<p id={id} className={`${className ?? ''} text-sm lg:text-lg`}>
+		<p id={id} className={`${className ?? ''} text-md lg:text-lg`}>
 			{children}
 		</p>
 	) : type === 'smaller' ? (

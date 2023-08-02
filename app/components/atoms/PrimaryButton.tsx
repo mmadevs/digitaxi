@@ -15,8 +15,8 @@ const PrimaryButton: FunctionComponent<{
 			${padding ? `p-${padding}` : 'p-4'} 
 			items-center font-bold text-xl 
 			transition-all duration-200 ${className ?? ''} 
-			hover:bg-blue-900
-			disabled:opacity-70`}
+			hover:bg-opacity-10 border-[4px] border-blue-950 hover:text-blue-950
+			disabled:opacity-70 disabled:border-opacity-0 disabled:hover:bg-opacity-100 disabled:hover:text-white`}
 			onClick={(e) => {
 				e.preventDefault()
 				onClick?.()

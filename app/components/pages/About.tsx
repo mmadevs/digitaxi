@@ -27,26 +27,26 @@ export default function About() {
 		{
 			icon: <PiTarget />,
 			title: 'MISSÃO',
-			subtitle:
-				'Aliquam suscipit tincidunt lectus. Phasellus sodales vehicula commodo. Cras sit amet eros dolor.'
+			subtitle: `Atender com excelência as demandas e necessidades dos nossos clientes, oferecendo serviços de transporte com uma 
+			frota moderna de veículos seguros e confortáveis em conformidade com a legislação vigente de trânsito brasileiro.`
 		},
 		{
 			icon: <TbScanEye />,
 			title: 'VISÃO',
-			subtitle:
-				'Vivamus bibendum ac lorem at suscipit. Pellentesque ultrices tincidunt nulla.'
+			subtitle: `Ser referência em qualidade e segurança na prestação de serviços de transporte, 
+			para as empresas das mais diversas áreas de atuação na região metropolitana.`
 		},
 		{
 			icon: <MdBalance />,
 			title: 'VALORES',
-			subtitle:
-				'Quisque tristique massa eget molestie fermentum. Cras aliquet turpis suscipit lectus suscipit.'
+			subtitle: `A DIGITÁXI é guiada por valores cooperativistas de ajuda mútua, honestidade, transparência, 
+				gestão democrática, igualdade entre os cooperados, e responsabilidade social com seus concorrentes.`
 		},
 		{
 			icon: <MdDiversity3 />,
 			title: 'DIVERSIDADE',
-			subtitle:
-				'Respeitar a diversidade é compreender que todos somos iguais e, ao mesmo tempo, reconhecer a singularidade e as diferenças de cada um. Somos engajados em cooperar diariamente com o respeito à todos.'
+			subtitle: `Respeitar a diversidade é compreender que todos somos iguais e, ao mesmo tempo, reconhecer a singularidade e as 
+				diferenças de cada um. Somos engajados em cooperar diariamente com o respeito à todos.`
 		}
 	]
 

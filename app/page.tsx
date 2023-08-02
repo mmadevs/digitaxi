@@ -21,14 +21,15 @@ function Pages() {
 	return (
 		<div
 			id='pages'
-			className={`relative min-h-screen flex flex-col ${
+			className={`flex flex-col overflow-hidden ${
 				isMenuOpen
 					? 'amax-h-screen aoverflow-hidden'
 					: 'overflow-auto scroll-smooth'
-			}`}
+			}
+			`}
 		>
 			<Header />
-			<div className='flex-1 flex flex-col gap-16'>
+			<div className={`flex-1 flex flex-col gap-16 `}>
 				<Home />
 				<Fleet />
 				<About />

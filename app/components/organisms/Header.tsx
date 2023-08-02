@@ -33,10 +33,12 @@ const Header: FunctionComponent = () => {
 		return <></>
 	}
 	return (
-		<header className='z-40 sticky top-0 w-full flex flex-col bg-white'>
+		<header className='flex flex-col bg-blue-400 bg-opacity-10'>
 			<HeaderTopInfo />
-			<div className='flex-1 flex flex-wrap items-center p-5 justify-between'>
-				<EnterpriseLogo />
+			<div className=' flex-1 flex flex-wrap items-center p-5 justify-between'>
+				<div className='relative flex-1 min-h-[80px] max-w-[250px]'>
+					<EnterpriseLogo />
+				</div>
 				<BurgerButton openMenu={() => setIsMenuOpen(true)} />
 				{isMenuOpen && <CreateMenu />}
 				<Menu className='hidden lg:block' items={navItems} />

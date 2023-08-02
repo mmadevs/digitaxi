@@ -45,6 +45,9 @@ export default function Budget() {
 	function recaptchaSuccessful(value: string | null) {
 		value && setIsSendButtonDisabled(false)
 	}
+	function sendMail() {
+		setIsSendButtonDisabled(true)
+	}
 	return (
 		<PageLayout id='orcamento' className=''>
 			<Section
@@ -94,6 +97,7 @@ export default function Budget() {
 					<PrimaryButton
 						className='col-span-2 row-start-6 self-center place-self-center px-24'
 						disabled={isSendButtonDisabled}
+						onClick={sendMail}
 					>
 						Enviar
 					</PrimaryButton>
