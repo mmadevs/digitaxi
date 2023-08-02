@@ -1,5 +1,5 @@
 'use client'
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useEffect, useState } from 'react'
 import EnterpriseLogo from '../atoms/EnterpriseLogo'
 import HeaderTopInfo from '../molecules/HeaderTopInfo'
 import BurgerButton from '../molecules/BurgerButton'
@@ -32,11 +32,33 @@ const Header: FunctionComponent = () => {
 		}
 		return <></>
 	}
+
+	const [scrollPosition, setScrollPosition] = useState(0)
+
+	const handleScroll = () => {
+		const position = window.scrollY
+		setScrollPosition(position)
+	}
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll, { passive: true })
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [])
+
 	return (
-		<header className='flex flex-col bg-blue-400 bg-opacity-10'>
+		<header className='flex flex-col bg-blue-400 bg-opacity-10 min-h-[160px]'>
 			<HeaderTopInfo />
-			<div className=' flex-1 flex flex-wrap items-center p-5 justify-between'>
-				<div className='relative flex-1 min-h-[80px] max-w-[250px]'>
+			<div
+				className={`z-50 flex-1 flex flex-wrap items-center p-1 transition-all justify-between ${
+					scrollPosition >= 160
+						? 'fixed top-0 w-full bg-blue-950 drop-shadow-md'
+						: ''
+				}`}
+			>
+				<div className='relative flex-1 min-h-[40px] max-w-[250px]'>
 					<EnterpriseLogo />
 				</div>
 				<BurgerButton openMenu={() => setIsMenuOpen(true)} />

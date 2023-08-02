@@ -9,7 +9,7 @@ const Menu: FunctionComponent<{
 	close?: () => void
 }> = ({ items, close, className }) => {
 	return (
-		<div
+		<nav
 			className={`z-50 fixed h-full overflow-visible inset-0 min-h-screen p-8 bg-blue-950 text-white flex flex-col max-md:animate-flip-down
 			lg:static lg:h-auto lg:min-h-0 lg:rounded-xl lg:p-3 lg:px-8 ${className ?? ''}`}
 		>
@@ -37,7 +37,7 @@ const Menu: FunctionComponent<{
 					/>
 				))}
 			</ul>
-		</div>
+		</nav>
 	)
 }
 

@@ -1,4 +1,5 @@
 'use client'
+import { useEffect } from 'react'
 import Footer from './components/organisms/Footer'
 import Header from './components/organisms/Header'
 import About from './components/pages/About'
@@ -17,6 +18,10 @@ const Page = () => (
 export default Page
 
 function Pages() {
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+
 	const { isMenuOpen } = useMenu()
 	return (
 		<div
