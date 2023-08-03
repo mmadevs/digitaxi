@@ -11,7 +11,7 @@ const PrimaryButton: FunctionComponent<{
 	return (
 		<button
 			disabled={disabled}
-			className={`rounded-full bg-blue-950 text-white flex justify-center 
+			className={`rounded-lg bg-blue-950 text-white flex justify-center 
 			${padding ? `p-${padding}` : 'p-4'} 
 			items-center font-bold text-xl 
 			transition-all duration-200 ${className ?? ''} 

@@ -26,21 +26,15 @@ function Pages() {
 	return (
 		<div
 			id='pages'
-			className={`flex flex-col ${
-				isMenuOpen
-					? 'amax-h-[100svh] aoverflow-hidden'
-					: 'overflow-auto scroll-smooth'
-			}
+			className={`${isMenuOpen ? '' : 'overflow-auto scroll-smooth'}
 			`}
 		>
 			<Header />
-			<div className={`flex-1 flex flex-col gap-16 `}>
-				<Home />
-				<Fleet />
-				<About />
-				<Clients />
-				<Budget />
-			</div>
+			<Home />
+			<Fleet />
+			<About />
+			<Clients />
+			<Budget />
 			<Footer />
 		</div>
 	)

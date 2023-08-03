@@ -4,7 +4,6 @@ import EnterpriseLogo from '../atoms/EnterpriseLogo'
 import HeaderTopInfo from '../molecules/HeaderTopInfo'
 import BurgerButton from '../molecules/BurgerButton'
 import Menu from './Menu'
-import ReactDOM from 'react-dom'
 import { useMenu } from '@/app/context/Menu'
 
 const Header: FunctionComponent = () => {
@@ -16,18 +15,7 @@ const Header: FunctionComponent = () => {
 		{ label: 'Orçamento', route: '#orcamento' }
 	]
 
-	const { isMenuOpen, setIsMenuOpen } = useMenu()
-
-	const CreateMenu = () => {
-		const app = document.querySelector('#pages')
-		if (app) {
-			return ReactDOM.createPortal(
-				<Menu className='lg:hidden' items={navItems} />,
-				app
-			)
-		}
-		return <></>
-	}
+	const { setIsMenuOpen } = useMenu()
 
 	const [scrollPosition, setScrollPosition] = useState(0)
 
@@ -58,8 +46,7 @@ const Header: FunctionComponent = () => {
 					<EnterpriseLogo />
 				</div>
 				<BurgerButton openMenu={() => setIsMenuOpen(true)} />
-				{isMenuOpen && <CreateMenu />}
-				<Menu className='hidden lg:block' items={navItems} />
+				<Menu className='' items={navItems} />
 			</div>
 		</header>
 	)

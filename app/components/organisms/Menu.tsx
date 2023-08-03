@@ -1,33 +1,27 @@
 'use client'
 import { FunctionComponent } from 'react'
-import MenuItem from '../atoms/MenuItem'
-import { AiFillCloseCircle } from 'react-icons/ai'
 import { useMenu } from '@/app/context/Menu'
+import { NavBarItem } from '@/app/types/NavBarItem'
+import CloseButton from '../atoms/CloseButton'
+import MenuItems from '../molecules/MenuItems'
 
 const Menu: FunctionComponent<{
-	items: { label: string; route: string }[]
+	items: NavBarItem[]
 	className?: string
 }> = ({ items, className }) => {
-	const { setIsMenuOpen } = useMenu()
+	const { isMenuOpen, setIsMenuOpen } = useMenu()
 	return (
 		<nav
-			className={`z-50 fixed h-full overflow-visible inset-0 min-h-screen p-8 bg-blue-950 text-white flex flex-col max-md:animate-flip-down
-			lg:static lg:h-auto lg:min-h-0 lg:rounded-xl lg:p-3 lg:px-8 ${className ?? ''}`}
+			className={`z-50 fixed inset-0 max-h-screen p-8 
+			bg-blue-950 text-white flex flex-col 
+			animate-flip-down
+			${isMenuOpen ? 'animate-none min-h-screen' : 'hidden'}
+			lg:static lg:h-auto lg:min-h-0 lg:rounded-xl lg:p-3 lg:px-8 
+			lg:animate-none lg:block
+			${className ?? ''}`}
 		>
-			<button
-				className='bg-transparent text-white text-4xl py-5 place-self-end lg:hidden'
-				onClick={() => setIsMenuOpen(false)}
-			>
-				<AiFillCloseCircle
-					className='fill-white text-white'
-					color='#fff'
-				/>
-			</button>
-			<ul className='gap-7 flex flex-col lg:flex-row'>
-				{items.map((item) => (
-					<MenuItem key={item.route} item={item} />
-				))}
-			</ul>
+			<CloseButton onClick={() => setIsMenuOpen(false)} />
+			<MenuItems items={items} />
 		</nav>
 	)
 }
