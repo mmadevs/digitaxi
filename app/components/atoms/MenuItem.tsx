@@ -14,7 +14,7 @@ const MenuItem: FunctionComponent<{
 				block: 'start'
 			})
 		}
-	}, [isMenuOpen, item])
+	}, [isMenuOpen])
 	return (
 		<li
 			className={`relative flex-1 basis-full px-2 cursor-pointer hover:text-lime-300 flex flex-col justify-center items-center text-3xl lg:text-lg`}
