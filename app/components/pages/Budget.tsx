@@ -7,6 +7,15 @@ import { useInView } from 'react-intersection-observer'
 import Input from '../molecules/Input'
 import { useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
+import { toast } from 'react-toastify'
+import { send } from '@emailjs/browser'
+
+interface InputLabel {
+	key: 'name' | 'company' | 'email' | 'phone' | 'message'
+	label: string
+	className?: string
+	long?: boolean
+}
 
 export default function Budget() {
 	const [isSendButtonDisabled, setIsSendButtonDisabled] = useState(true)
@@ -22,22 +31,17 @@ export default function Budget() {
 		company: '',
 		email: '',
 		phone: '',
-		about: ''
+		message: ''
 	})
 
-	const fields: {
-		key: 'name' | 'company' | 'email' | 'phone' | 'about'
-		label: string
-		className?: string
-		long?: boolean
-	}[] = [
+	const inputLabels: InputLabel[] = [
 		{ label: 'Seu nome', key: 'name' },
 		{ label: 'Empresa:', key: 'company' },
 		{ label: 'E-mail:', key: 'email' },
 		{ label: 'Telefone/Celular:', key: 'phone' },
 		{
 			label: 'O que você precisa?',
-			key: 'about',
+			key: 'message',
 			className: 'col-span-2 row-span-2',
 			long: true
 		}
@@ -45,8 +49,26 @@ export default function Budget() {
 	function recaptchaSuccessful(value: string | null) {
 		value && setIsSendButtonDisabled(false)
 	}
-	function sendMail() {
-		setIsSendButtonDisabled(true)
+	async function sendMail() {
+		try {
+			setIsSendButtonDisabled(true)
+
+			await send(
+				process.env.NEXT_PUBLIC_SERVICE_KEY as string,
+				process.env.NEXT_PUBLIC_TEMPLATE_KEY as string,
+				formData,
+				process.env.NEXT_PUBLIC_API_KEY as string
+			)
+
+			toast(`Sua solicitação foi enviada! Aguarde o nosso retorno.`, {
+				type: 'success'
+			})
+		} catch (e: unknown) {
+			toast(`Ocorreu um erro ao enviar sua solicitação!`, {
+				type: 'success'
+			})
+			console.error((e as Error).stack, (e as Error).message)
+		}
 	}
 	return (
 		<PageLayout id='orcamento' className=''>
@@ -69,7 +91,7 @@ export default function Budget() {
 					className={`flex flex-col gap-2 
                 lg:grid lg:grid-cols-2 lg:grid-rows-6`}
 				>
-					{fields.map((field) => (
+					{inputLabels.map((field) => (
 						<Input
 							key={field.key}
 							label={field.label}
