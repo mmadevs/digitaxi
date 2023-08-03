@@ -22,11 +22,7 @@ const Header: FunctionComponent = () => {
 		const app = document.querySelector('#pages')
 		if (app) {
 			return ReactDOM.createPortal(
-				<Menu
-					className='lg:hidden'
-					items={navItems}
-					close={() => setIsMenuOpen(false)}
-				/>,
+				<Menu className='lg:hidden' items={navItems} />,
 				app
 			)
 		}

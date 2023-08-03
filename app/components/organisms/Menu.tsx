@@ -6,8 +6,7 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 const Menu: FunctionComponent<{
 	items: { label: string; route: string }[]
 	className?: string
-	close?: () => void
-}> = ({ items, close, className }) => {
+}> = ({ items, className }) => {
 	return (
 		<nav
 			className={`z-50 fixed h-full overflow-visible inset-0 min-h-screen p-8 bg-blue-950 text-white flex flex-col max-md:animate-flip-down
@@ -24,17 +23,7 @@ const Menu: FunctionComponent<{
 			</button>
 			<ul className='gap-7 flex flex-col lg:flex-row'>
 				{items.map((item) => (
-					<MenuItem
-						key={item.route}
-						item={item}
-						onClick={() => {
-							close?.()
-							document.querySelector(item.route)?.scrollIntoView({
-								behavior: 'smooth',
-								block: 'start'
-							})
-						}}
-					/>
+					<MenuItem key={item.route} item={item} />
 				))}
 			</ul>
 		</nav>
