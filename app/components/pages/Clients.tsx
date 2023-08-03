@@ -38,12 +38,12 @@ export default function Clients() {
 					Principais clientes
 				</Text>
 				<Text type='paragraph' className='text-justify'>
-					A DIGITÁXI ao longo de 24 de dedicação, busca fortalecer a
-					parceria com seus clientes, garantindo a melhoria contínua
-					na prestação do serviço e consequentemente um bom
-					atendimento. <br />
-					Com orgulho apresentamos alguns dos clientes que já utilizam
-					as soluções em transporte da Digitáxi.
+					A DIGITÁXI ao longo de 24 anos de dedicação, busca
+					fortalecer a parceria com seus clientes, garantindo a
+					melhoria contínua na prestação do serviço e consequentemente
+					um bom atendimento. Com orgulho apresentamos alguns dos
+					clientes que já utilizam as soluções em transporte da
+					Digitáxi.
 				</Text>
 				<ul className='flex flex-wrap gap-4 justify-center items-center'>
 					{clientsItems.map((item) => (
