@@ -54,7 +54,7 @@ const Header: FunctionComponent = () => {
 						: ''
 				}`}
 			>
-				<div className='relative flex-1 min-h-[40px] max-w-[250px]'>
+				<div className='relative px-4 flex-1 min-h-[40px] max-w-[250px]'>
 					<EnterpriseLogo />
 				</div>
 				<BurgerButton openMenu={() => setIsMenuOpen(true)} />
