@@ -26,7 +26,7 @@ function Pages() {
 	return (
 		<div
 			id='pages'
-			className={`flex flex-col overflow-hidden ${
+			className={`flex flex-col ${
 				isMenuOpen
 					? 'amax-h-[100svh] aoverflow-hidden'
 					: 'overflow-auto scroll-smooth'
