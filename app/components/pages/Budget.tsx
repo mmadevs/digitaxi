@@ -12,9 +12,10 @@ import { send } from '@emailjs/browser'
 
 interface InputLabel {
 	key: 'name' | 'company' | 'email' | 'phone' | 'message'
+	type?: 'text' | 'name' | 'tel' | 'email'
 	label: string
 	className?: string
-	long?: boolean
+	mask?: string
 }
 
 export default function Budget() {
@@ -35,15 +36,19 @@ export default function Budget() {
 	})
 
 	const inputLabels: InputLabel[] = [
-		{ label: 'Seu nome', key: 'name' },
+		{ label: 'Seu nome', key: 'name', type: 'name' },
 		{ label: 'Empresa:', key: 'company' },
-		{ label: 'E-mail:', key: 'email' },
-		{ label: 'Telefone/Celular:', key: 'phone' },
+		{ label: 'E-mail:', key: 'email', type: 'email' },
+		{
+			label: 'Telefone/Celular:',
+			key: 'phone',
+			type: 'tel',
+			mask: '(99) 99999-9999'
+		},
 		{
 			label: 'O que você precisa?',
 			key: 'message',
-			className: 'col-span-2 row-span-2',
-			long: true
+			className: 'col-span-2 row-span-2'
 		}
 	]
 	function recaptchaSuccessful(value: string | null) {
@@ -93,10 +98,8 @@ export default function Budget() {
 				>
 					{inputLabels.map((field) => (
 						<Input
+							{...field}
 							key={field.key}
-							label={field.label}
-							long={field.long}
-							className={field.className}
 							value={(formData[field.key] as string) ?? ''}
 							setValue={(value) =>
 								setFormData((prev) => ({

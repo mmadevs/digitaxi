@@ -3,7 +3,7 @@ import { ReactNode, forwardRef, ForwardRefRenderFunction } from 'react'
 
 interface SectionProps {
 	id: string
-	bg: 'white' | 'cyan'
+	bg: 'white' | 'cyan' | 'darkblue'
 	className?: string
 	children: ReactNode[]
 }
@@ -15,8 +15,8 @@ const Section: ForwardRefRenderFunction<HTMLDivElement, SectionProps> = (
 	return (
 		<section
 			id={id}
-			className={`px-8 py-16 ${className}
-		${bg === 'cyan' ? 'bg-blue-400 bg-opacity-10' : 'bg-white'}
+			className={`px-8 py-16 shadow-lg ${className}
+		${bg === 'cyan' ? 'bg-blue-50' : bg === 'white' ? 'bg-white' : 'bg-blue-950'}
 		`}
 		>
 			<div

@@ -15,9 +15,9 @@ const PageLayout: FunctionComponent<PageLayoutProps> = ({
 	return (
 		<main
 			id={id}
-			className={`relative gap-8 w-full flex flex-col overflow-hidden bg-white text-black ${
-				className ?? ''
-			}`}
+			className={`relative lg:p-4 py-4 gap-8 w-full 
+			flex flex-col overflow-hidden bg-gray-50 text-black 
+			${className ?? ''}`}
 		>
 			{children}
 		</main>
