@@ -36,7 +36,7 @@ const Header: FunctionComponent = () => {
 		<header className='flex flex-col bg-blue-400 bg-opacity-10 min-h-[160px]'>
 			<HeaderTopInfo />
 			<div
-				className={`z-50 flex-1 flex flex-wrap items-center p-1 transition-all justify-between ${
+				className={`z-50 flex-1 px-2 lg:px-8 flex flex-wrap items-center p-1 transition-all justify-between ${
 					scrollPosition >= 160
 						? 'fixed top-0 w-full bg-blue-950 shadow-lg'
 						: ''

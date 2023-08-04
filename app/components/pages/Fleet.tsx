@@ -24,11 +24,9 @@ export default function Fleet() {
 					Nossa frota
 				</Text>
 				<Text type='paragraph' className='text-justify'>
-					Nossos veículos dispõem de conforto e segurança para
-					qualquer demanda que o cliente desejar. Somos a maior
-					cooperativa em atuação e com frota no Polo Petroquímico de
-					Camaçari, essa presença reflete a confiança dos nossos
-					clientes nos serviços da Digitaxi.
+					Somos a maior cooperativa em atuação e com frota no Polo
+					Petroquímico de Camaçari, essa presença reflete a confiança
+					dos nossos clientes nos serviços da Digitaxi.
 				</Text>
 				<div className='flex flex-wrap gap-8 justify-center'>
 					<FleetItem

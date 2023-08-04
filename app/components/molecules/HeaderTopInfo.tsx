@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react'
 import { GiPhone } from 'react-icons/gi'
 import { FiAtSign } from 'react-icons/fi'
 import Text from '../atoms/Text'
+import Link from 'next/link'
 
 const HeaderTopInfo: FunctionComponent = () => {
 	return (
@@ -9,14 +10,20 @@ const HeaderTopInfo: FunctionComponent = () => {
 			<Text className='max-md:hidden font-bold' type='smaller'>
 				Fale conosco!
 			</Text>
-			<span className='flex text-sm items-center gap-1'>
+			<Link
+				href={'tel:+557136251725'}
+				className='flex text-sm items-center gap-1'
+			>
 				<GiPhone />
 				<Text type='smaller'>(71) 3625-1725</Text>
-			</span>
-			<span className='flex text-sm items-center gap-1'>
+			</Link>
+			<Link
+				href={'mailto:atendimento@digitaxi.coop.br'}
+				className='flex text-sm items-center gap-1'
+			>
 				<FiAtSign />
 				<Text type='smaller'>atendimento@digitaxi.coop.br</Text>
-			</span>
+			</Link>
 		</header>
 	)
 }
