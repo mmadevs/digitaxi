@@ -57,7 +57,7 @@ export default function Home() {
 						value: x
 					}))}
 				/>
-				<div className='flex flex-col justify-around gap-8 basis-44'>
+				<div className='flex flex-col justify-around gap-8 basis-96'>
 					<Text type='title' className=''>
 						O transporte que você precisa está aqui!
 					</Text>
