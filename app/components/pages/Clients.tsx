@@ -10,19 +10,9 @@ export default function Clients() {
 		initialInView: false
 	})
 
-	const clientsItems = [
-		'/clients/image1.png',
-		'/clients/image2.png',
-		'/clients/image3.png',
-		'/clients/image4.png',
-		'/clients/image5.png',
-		'/clients/image6.png',
-		'/clients/image7.png',
-		'/clients/image8.png',
-		'/clients/image9.png',
-		'/clients/image10.png',
-		'/clients/image11.png'
-	]
+	const clientsItems: Array<string> = Array(12)
+		.fill('')
+		.map((_, i) => `/clients/image${i + 1}.png`)
 
 	return (
 		<PageLayout id='clientes'>
