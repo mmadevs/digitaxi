@@ -17,13 +17,19 @@ const Carousel: FunctionComponent<{
 	useEffect(() => {
 		const scrollItems = () => {
 			if (itemsRef.current && items.length) {
+				console.log(itemsRef.current)
 				const scrollWidth = itemsRef.current.scrollWidth
 				const scrollLeft = itemsRef.current.scrollLeft
 				const scrollOne = scrollWidth / items.length
 
 				if (scrollLeft + scrollOne < scrollWidth) {
 					itemsRef.current.scrollLeft += scrollOne
-					setSelectedIndex(scrollWidth / itemsRef.current.scrollLeft)
+					const index =
+						Math.ceil(scrollWidth / itemsRef.current.scrollLeft) - 1
+
+					if (index < items.length) {
+						setSelectedIndex(index)
+					}
 				} else {
 					itemsRef.current.scrollLeft = 0
 					setSelectedIndex(0)

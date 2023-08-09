@@ -10,7 +10,7 @@ export default function Clients() {
 		initialInView: false
 	})
 
-	const clientsItems: Array<string> = Array(12)
+	const clientsItems: Array<string> = Array(14)
 		.fill('')
 		.map((_, i) => `/clients/image${i + 1}.png`)
 

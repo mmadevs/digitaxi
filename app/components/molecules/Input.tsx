@@ -17,7 +17,8 @@ const Input: FunctionComponent<{
 	className = '',
 	required = true,
 	type = 'text',
-	mask = ''
+	mask = '',
+	long = false
 }) => {
 	const [error, setError] = useState<string | undefined>()
 	const inputRef = createRef<HTMLInputElement>()
@@ -30,30 +31,41 @@ const Input: FunctionComponent<{
 				className='container cursor-text flex-1 rounded-xl border-2 border-blue-950 overflow-y-auto'
 				onClick={() => inputRef?.current?.focus()}
 			>
-				<InputMask
-					mask={mask}
-					value={value}
-					onChange={(e) => {
-						const currentValue = e.target.value
-						if (currentValue) setError(undefined)
-						setValue(currentValue)
-					}}
-					onBlur={() => {
-						const cleanedValue = value?.replace(/[^a-zA-Z0-9]/g, '')
-						if (!cleanedValue && required) {
-							setError('Este campo é obrigatório')
-						} else {
-							setError(undefined)
-						}
-					}}
-				>
-					<input
-						ref={inputRef}
+				{!long ? (
+					<InputMask
+						mask={mask}
+						value={value}
+						onChange={(e) => {
+							const currentValue = e.target.value
+							if (currentValue) setError(undefined)
+							setValue(currentValue)
+						}}
+						onBlur={() => {
+							const cleanedValue = value?.replace(
+								/[^a-zA-Z0-9]/g,
+								''
+							)
+							if (!cleanedValue && required) {
+								setError('Este campo é obrigatório')
+							} else {
+								setError(undefined)
+							}
+						}}
+					>
+						<input
+							ref={inputRef}
+							id={`${label.replaceAll(' ', '')}-input`}
+							type={type}
+							className={`p-2 rounded-xl w-full h-auto bg-transparent`}
+						/>
+					</InputMask>
+				) : (
+					<textarea
 						id={`${label.replaceAll(' ', '')}-input`}
-						type={type}
+						rows={4}
 						className={`p-2 rounded-xl w-full h-auto bg-transparent`}
 					/>
-				</InputMask>
+				)}
 			</div>
 			<small
 				className={
