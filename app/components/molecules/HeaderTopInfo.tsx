@@ -3,6 +3,7 @@ import { GiPhone } from 'react-icons/gi'
 import { FiAtSign } from 'react-icons/fi'
 import Text from '../atoms/Text'
 import Link from 'next/link'
+import { isMobile } from 'react-device-detect'
 
 const HeaderTopInfo: FunctionComponent = () => {
 	return (
@@ -11,14 +12,14 @@ const HeaderTopInfo: FunctionComponent = () => {
 				Fale conosco!
 			</Text>
 			<Link
-				href={'tel:+557136251725'}
+				href={isMobile ? 'tel:+557136251725' : '#'}
 				className='flex text-sm items-center gap-1'
 			>
 				<GiPhone />
 				<Text type='smaller'>(71) 3625-1725</Text>
 			</Link>
 			<Link
-				href={'mailto:atendimento@digitaxi.coop.br'}
+				href={isMobile ? 'mailto:atendimento@digitaxi.coop.br' : '#'}
 				className='flex text-sm items-center gap-1'
 			>
 				<FiAtSign />
