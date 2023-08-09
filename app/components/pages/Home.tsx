@@ -10,7 +10,8 @@ export default function Home() {
 	const carouselItems = {
 		introduction: [
 			'/home/introduction/image1.png',
-			'/home/introduction/image2.png'
+			'/home/introduction/image2.png',
+			'/home/introduction/image3.jpeg'
 		],
 		whyUs: [
 			{
