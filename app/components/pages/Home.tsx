@@ -51,13 +51,13 @@ export default function Home() {
 			>
 				<Carousel
 					id='carousel_introduction'
-					className='flex-1'
+					className=''
 					items={carouselItems.introduction.map((x) => ({
 						type: 'image',
 						value: x
 					}))}
 				/>
-				<div className='flex flex-col justify-around gap-8 basis-96'>
+				<div className='flex flex-col justify-around gap-8'>
 					<Text type='title' className=''>
 						O transporte que você precisa está aqui!
 					</Text>
