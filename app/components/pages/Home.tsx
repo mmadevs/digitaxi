@@ -51,7 +51,7 @@ export default function Home() {
 			>
 				<Carousel
 					id='carousel_introduction'
-					className='flex-1'
+					className='flex-1 min-w-0'
 					items={carouselItems.introduction.map((x) => ({
 						type: 'image',
 						value: x
