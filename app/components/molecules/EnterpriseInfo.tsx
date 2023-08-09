@@ -3,6 +3,7 @@ import Text from '../atoms/Text'
 import Image from 'next/image'
 import { GiPhone } from 'react-icons/gi'
 import { FiAtSign } from 'react-icons/fi'
+import Link from 'next/link'
 
 const EnterpriseInfo: FunctionComponent = () => {
 	return (
@@ -15,14 +16,20 @@ const EnterpriseInfo: FunctionComponent = () => {
 					fill
 				/>
 			</div>
-			<span className='flex text-sm items-center gap-1'>
+			<Link
+				href={'tel:+557136251725'}
+				className='flex text-sm items-center gap-1'
+			>
 				<GiPhone className='text-sm' />
 				<Text type='smaller'>(71) 3625-1725</Text>
-			</span>
-			<span className='flex text-sm items-center gap-1'>
+			</Link>
+			<Link
+				href={'mailto:atendimento@digitaxi.coop.br'}
+				className='flex text-sm items-center gap-1'
+			>
 				<FiAtSign className='text-sm' />
 				<Text type='smaller'>atendimento@digitaxi.coop.br</Text>
-			</span>
+			</Link>
 			<Text type='smaller'>Todos os direitos reservados | 2023</Text>
 		</div>
 	)
