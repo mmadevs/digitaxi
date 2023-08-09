@@ -46,7 +46,7 @@ const Carousel: FunctionComponent<{
 	return (
 		<div
 			id={id}
-			className={`relative p-1 h-min
+			className={`relative p-1 min-h-0 h-min
 				${className ?? ''}`}
 		>
 			<CarouselItems _ref={itemsRef}>
