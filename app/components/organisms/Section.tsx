@@ -22,7 +22,7 @@ const Section: ForwardRefRenderFunction<HTMLDivElement, SectionProps> = (
 			<div
 				ref={ref}
 				className={`animate-duration-1000
-				flex flex-col gap-4 max-w-6xl mx-auto ${className ?? ''}`}
+				flex flex-col gap-4 lg:gap-8 max-w-7xl mx-auto ${className ?? ''}`}
 			>
 				{children}
 			</div>
