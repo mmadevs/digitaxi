@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-import { GiPhone } from 'react-icons/gi'
+//import { GiPhone } from 'react-icons/gi'
 import { FiAtSign } from 'react-icons/fi'
 import Text from '../atoms/Text'
 
