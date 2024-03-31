@@ -9,6 +9,7 @@ const HeaderTopInfo: FunctionComponent = () => {
 			<Text className='max-md:hidden font-bold' type='smaller'>
 				Fale conosco!
 			</Text>
+			{/* comment 
 			<a
 				href={'tel:+557136251725'}
 				className='flex text-sm items-center gap-1'
@@ -16,6 +17,8 @@ const HeaderTopInfo: FunctionComponent = () => {
 				<GiPhone />
 				<Text type='smaller'>(71) 3625-1725</Text>
 			</a>
+   			*/}
+			
 			<a
 				href={'mailto:atendimento@digitaxi.coop.br'}
 				className='flex text-sm items-center gap-1'
